@@ -1,0 +1,56 @@
+// src/components/common/Modal.scss
+
+.modal-overlay {
+    position: fixed; // Fijo en la pantalla
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); // Fondo semi-transparente
+    display: flex;
+    justify-content: center; // Centra horizontalmente el contenido
+    align-items: center; // Centra verticalmente el contenido
+    z-index: 1000; // Asegura que esté por encima de otros elementos
+    animation: fadeInOverlay 0.3s ease; // Animación de entrada
+  }
+  
+  .modal-content {
+    background-color: #fff; // Fondo blanco para el contenido
+    padding: 25px 30px; // Espaciado interno
+    border-radius: 8px; // Bordes redondeados
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); // Sombra
+    position: relative; // Para posicionar el botón de cerrar
+    min-width: 300px; // Ancho mínimo
+    max-width: 90%; // Ancho máximo
+    max-height: 90vh; // Alto máximo
+    overflow-y: auto; // Permite scroll si el contenido es muy largo
+    animation: slideIn 0.4s ease-out; // Animación de entrada
+  }
+  
+  .modal-close-button {
+    position: absolute; // Posición absoluta respecto a modal-content
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8rem; // Tamaño del 'X'
+    color: #aaa;
+    cursor: pointer;
+    line-height: 1; // Ajusta la altura de línea
+    padding: 0;
+  
+    &:hover {
+      color: #333; // Cambia color al pasar el mouse
+    }
+  }
+  
+  // Animaciones
+  @keyframes fadeInOverlay {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-30px) scale(0.95); opacity: 0; }
+    to { transform: translateY(0) scale(1); opacity: 1; }
+  }

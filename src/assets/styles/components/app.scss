@@ -1,0 +1,52 @@
+// src/App.scss
+
+// Importa aquí otros estilos globales si no lo haces en main.jsx
+// @import './assets/styles/base';
+
+html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif; // O la fuente que prefieras
+    overflow: hidden; // Evita el scroll de la página principal
+  }
+  
+  .app-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden; // Contiene el swiper
+  }
+  
+  .main-swiper {
+    height: 100%; // Asegura que el swiper ocupe toda la altura
+    width: 100%;
+  }
+  
+  .section-slide {
+    height: 100%;
+    overflow-y: auto; // Permite scroll vertical DENTRO de cada sección
+    box-sizing: border-box; // Para que el padding no afecte el tamaño total
+    // Puedes añadir padding común aquí si quieres, o dejarlo en cada panel
+    // padding: 20px;
+  }
+  
+  // Estilos para los placeholders (temporal)
+  .placeholder-slide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #555;
+    h2 {
+      color: #333;
+    }
+  }
+  
+  // Estilos opcionales si usas paginación de Swiper
+  // .swiper-pagination-bullet {
+  //   background-color: #8886f3 !important; // Color de los puntos
+  // }
+  // .swiper-pagination-bullet-active {
+  //   background-color: #5a57d1 !important; // Color del punto activo
+  // }

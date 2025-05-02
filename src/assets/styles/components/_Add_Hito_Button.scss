@@ -1,0 +1,25 @@
+// src/components/hito/AddHitoButton.scss
+// Puedes importar variables de colores si las tienes
+
+.add-hito-button {
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #fff; // Texto blanco
+    background-color: #8886f3; // Un tono lila/azulado suave (ajusta a tu paleta)
+    border: none;
+    border-radius: 20px; // Bordes redondeados
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: inline-flex; // Para alinear ícono y texto si se añade
+    align-items: center;
+    gap: 6px; // Espacio entre ícono y texto
+  
+    &:hover {
+      background-color: #716fde; // Color un poco más oscuro al pasar el mouse
+    }
+  
+    &:active {
+      transform: scale(0.98); // Efecto de clic
+    }
+  }

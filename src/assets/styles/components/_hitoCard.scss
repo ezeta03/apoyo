@@ -1,0 +1,82 @@
+// src/components/hito/HitoCard.scss
+
+// Puedes importar variables globales de colores si las defines en _base.scss
+// @import '../../assets/styles/base';
+
+.hito-card {
+    cursor: pointer; // Indica que es clickeable
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); // Efecto sutil al pasar el mouse
+    }
+  
+    &__contenido {
+      display: flex;
+      align-items: center;
+      gap: 12px; // Espacio entre icono, info y flecha
+    }
+  
+    &__icono {
+      font-size: 1.8rem; // Tamaño del icono
+      flex-shrink: 0; // Evita que el icono se encoja
+    }
+  
+    &__info {
+      flex-grow: 1; // Permite que la información ocupe el espacio disponible
+    }
+  
+    &__titulo {
+      margin: 0 0 4px 0; // Espaciado del título
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+  
+    &__fecha {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #555; // Color más suave para la fecha
+    }
+  
+    &__expand-icon {
+      font-size: 0.8rem;
+      transition: transform 0.3s ease; // Animación suave para la flecha
+  
+      &.expanded {
+          // Podríamos rotar el ícono si usamos uno de flecha real
+          // transform: rotate(180deg);
+      }
+    }
+  
+    &__nota-expandida {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(0, 0, 0, 0.1); // Separador sutil
+      animation: fadeIn 0.5s ease; // Animación de entrada
+  
+      h4 {
+        margin: 0 0 8px 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+      }
+  
+      p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #333;
+        white-space: pre-wrap; // Respeta saltos de línea en la nota
+      }
+    }
+  }
+  
+  // Animación simple de Fade In
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
