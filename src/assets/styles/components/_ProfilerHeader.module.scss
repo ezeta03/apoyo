@@ -1,0 +1,69 @@
+// src/components/common/ProfileHeader.scss
+// @import '../components/_variables.scss'; // Asume que tienes variables de color aquí
+
+.profile-header {
+  background-color: lighten(#9b0487, 5%); // Un fondo muy suave, basado en tu paleta
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column; // Apila info y frase en pantallas pequeñas
+  gap: 15px; // Espacio entre la info y la frase
+  // border-bottom: 1px solid darken(#9b0487, 5%); // Un borde sutil opcional
+
+  @media (min-width: 600px) { // En pantallas más grandes, alinea horizontalmente
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 15px; // Espacio entre foto y detalles
+  }
+
+  &__foto {
+    width: 60px; // Tamaño de la foto
+    height: 60px;
+    border-radius: 50%; // Hace la foto circular
+    object-fit: cover; // Asegura que la imagen cubra el espacio sin deformarse
+    border: 2px solid #df91b5; // Borde con color de tu paleta
+    background-color: #fff; // Fondo por si la imagen tarda o falla
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nombre {
+    margin: 0;
+    font-size: 1.3rem; // Tamaño del nombre
+    font-weight: 600;
+    color: darken(#9b0487, 40%); // Color oscuro para el nombre
+  }
+
+  &__meta {
+    margin: 2px 0 0 0; // Espaciado pequeño
+    font-size: 0.9rem;
+    color: darken(#9b0487, 25%); // Color más suave para profesión/edad
+  }
+
+  &__frase {
+    margin: 0;
+    font-size: 0.95rem;
+    font-style: italic;
+    color: darken(#22d86e, 35%); // Color distintivo para la frase
+    text-align: center; // Centra la frase en móviles
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.5); // Fondo semi-transparente opcional
+    border-radius: 4px;
+    max-width: 100%; // Asegura que no se desborde
+
+    @media (min-width: 600px) {
+      text-align: right; // Alinea a la derecha en pantallas grandes
+      max-width: 45%; // Limita el ancho en pantallas grandes
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+}

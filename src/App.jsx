@@ -1,36 +1,51 @@
 // src/App.jsx
 import React from 'react';
-
-// 1. Importa los componentes de Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-// 2. Importa los estilos base de Swiper (¡importante!)
 import 'swiper/css';
+// ... (otras importaciones de Swiper si las usas)
 
-// 3. (Opcional) Importa módulos adicionales si los usas (ej: Pagination, Navigation)
-// import 'swiper/css/pagination';
-// import 'swiper/css/navigation';
-// import { Pagination, Navigation } from 'swiper/modules'; // Importa los módulos
+// Importa el nuevo componente de cabecera
+import ProfileHeader from '../src/components/common/ProfilerHeader';
 
-// 4. Importa los componentes de tus secciones (Paneles)
+// Importa los componentes de tus secciones (Paneles)
 import HitosPanel from './components/hito/HitosPanel';
-// Importa los otros paneles cuando los tengas
-// import ObjetivosCortoMedianoPanel from './components/objetivoCortoMediano/ObjetivosCortoMedianoPanel';
-// import HabilidadesPanel from './components/habilidad/HabilidadesPanel';
-// import ObjetivosLargoPlazoPanel from './components/objetivoLargoPlazo/ObjetivosLargoPlazoPanel';
-// import TestimoniosPanel from './components/testimonio/TestimoniosPanel';
+// ... (otros paneles)
 
-// 5. Importa los estilos globales o específicos de App
-import './assets/styles/components/app.scss'; // Crearemos este archivo para estilos del contenedor principal
+import './assets/styles/components/app.scss';
 
 function App() {
   return (
+    // Cambiamos app-container para usar flexbox y ordenar header y swiper
     <div className="app-container">
-      {/* Por ahora, solo mostramos la sección de Hitos */}
-      <main className="main-content">
-        <HitosPanel />
-        {/* Aquí añadirías los otros paneles o la lógica de navegación más adelante */}
-      </main>
+      {/* 1. Renderiza la cabecera aquí, fuera del Swiper */}
+      <ProfileHeader />
+
+      {/* 2. El Swiper ahora ocupa el espacio restante */}
+      <div className="swiper-area"> {/* Contenedor extra para el Swiper */}
+        <Swiper
+          spaceBetween={0}
+          slidesPerView={1}
+          className="main-swiper"
+          // ... (otras configuraciones de Swiper)
+        >
+          {/* Tus SwiperSlides van aquí como antes */}
+          <SwiperSlide>
+            <div className="section-slide">
+              <HitosPanel />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="section-slide placeholder-slide" style={{ backgroundColor: '#e8eaf6' }}>
+              <h2>Objetivos a Corto/Mediano Plazo</h2>
+              <p>(Próximamente)</p>
+            </div>
+          </SwiperSlide>
+          {/* ... más slides ... */}
+        </Swiper>
+      </div>
+
+      {/* Opcional: Barra de navegación inferior */}
+      {/* <nav className="bottom-nav">...</nav> */}
     </div>
   );
 }
